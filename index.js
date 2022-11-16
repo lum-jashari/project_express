@@ -8,7 +8,7 @@ const keys = require("./config/keys");
 
 require("./models/User");
 require("./routes/authRoutes")(app);
-// require("./services/passport");
+require("./services/passport");
 
 mongoose.connect(keys.mongoose, {
     useNewUrlParser: true,
