@@ -4,12 +4,16 @@ const port = 4000;
 
 const passport = require("passport");
 const mongoose = require("mongoose");
+const keys = require("./config/keys");
 
 require("./models/User");
 require("./routes/authRoutes")(app);
 // require("./services/passport");
 
-mongoose.connect("mongodb+srv://admin:lumi12345@usersauthenticatewithgo.j17kmav.mongodb.net/?retryWrites=true&w=majority");
+mongoose.connect(keys.mongoose, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 app.use(passport.initialize());
 
